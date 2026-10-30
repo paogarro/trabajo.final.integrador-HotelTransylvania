@@ -1,0 +1,49 @@
+ {% extends "base/base.html" %}
+
+
+
+{% block title %}Iniciar sesión | Hotel Transylvania{% endblock %}
+
+
+
+{% block content %}
+
+<section class="page-heading">
+
+    <div>
+
+        <p class="eyebrow">Acceso al sistema</p>
+
+        <h1>Iniciar sesión</h1>
+
+        <p class="subtitle">Ingresá con tu cuenta para continuar.</p>
+
+    </div>
+
+</section>
+
+<section class="form-card">
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}{{ form.non_field_errors }}{% endif %}
+
+        {{ form.as_p }}
+
+        {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+
+        <div class="actions">
+
+            <button class="button" type="submit">Ingresar</button>
+
+            <a class="button secondary" href="{% url 'inicio:inicio' %}">Volver al inicio</a>
+
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %} 

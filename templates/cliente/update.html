@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+{% block title %}Editar cliente | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading"><div><p class="eyebrow">Huéspedes</p><h1>Editar cliente</h1><p class="subtitle">Actualizá la información de {{ object }}.</p></div></section>
+<section class="form-card">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="actions"><button class="button" type="submit">Guardar cambios</button><a class="button secondary" href="{% url 'cliente:cliente_list' %}">Cancelar</a></div>
+    </form>
+</section>
+{% endblock %}

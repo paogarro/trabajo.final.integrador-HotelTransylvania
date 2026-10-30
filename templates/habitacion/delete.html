@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+{% block title %}Eliminar habitación | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading"><div><p class="eyebrow">Alojamiento</p><h1>Eliminar habitación</h1></div></section>
+<section class="form-card">
+    <p class="confirm-copy">¿Seguro que querés eliminar la habitación <strong>{{ object.numero }}</strong> del hotel {{ object.hotel }}? Esta acción no se puede deshacer.</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="actions"><button class="button danger" type="submit">Sí, eliminar</button><a class="button secondary" href="{% url 'habitacion:habitacion_list' %}">No, volver</a></div>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+{% block title %}Nuevo hotel | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading"><div><p class="eyebrow">Alojamientos</p><h1>Nuevo hotel</h1><p class="subtitle">Completá los datos del establecimiento.</p></div></section>
+<section class="form-card">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="actions"><button class="button" type="submit">Guardar hotel</button><a class="button secondary" href="{% url 'hotel:hotel_list' %}">Cancelar</a></div>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+
+{% block title %}Clientes | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div><p class="eyebrow">Huéspedes</p><h1>Clientes</h1><p class="subtitle">Información de contacto de tus huéspedes.</p></div>
+    <a class="button" href="{% url 'cliente:cliente_create' %}">＋ Nuevo cliente</a>
+</section>
+{% if cliente %}
+<div class="table-wrap">
+    <table>
+        <thead><tr><th>Nombre</th><th>Email</th><th>Teléfono</th><th>Dirección</th><th>Acciones</th></tr></thead>
+        <tbody>{% for item in cliente %}
+            <tr>
+                <td>{{ item.nombre }} {{ item.apellido }}</td><td>{{ item.email }}</td>
+                <td>{{ item.telefono|default:"—" }}</td><td>{{ item.direccion|default:"—"|truncatechars:60 }}</td>
+                <td class="actions-cell">
+                    <a class="button secondary small" href="{% url 'cliente:cliente_update' item.pk %}">Editar</a>
+                    <a class="button danger small" href="{% url 'cliente:cliente_delete' item.pk %}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}</tbody>
+    </table>
+</div>
+{% else %}
+<section class="empty-state"><p>Todavía no hay clientes registrados.</p><a class="button" href="{% url 'cliente:cliente_create' %}">Registrar primer cliente</a></section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+{% block title %}Eliminar cliente | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading"><div><p class="eyebrow">Huéspedes</p><h1>Eliminar cliente</h1></div></section>
+<section class="form-card">
+    <p class="confirm-copy">¿Seguro que querés eliminar a <strong>{{ object }}</strong>? Esta acción no se puede deshacer.</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="actions"><button class="button danger" type="submit">Sí, eliminar</button><a class="button secondary" href="{% url 'cliente:cliente_list' %}">No, volver</a></div>
+    </form>
+</section>
+{% endblock %}

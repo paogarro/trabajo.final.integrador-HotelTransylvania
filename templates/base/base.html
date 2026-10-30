@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#21160c">
+    <title>{% block title %}Hotel Transylvania{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/halloween.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="{% block page_class %}inner-page{% endblock %}">
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="{% url 'inicio:inicio' %}">
+                <img src="{% static 'img/hotel-transylvania-logo.png' %}" alt="Logo de Hotel Transylvania">
+                <span class="brand-copy">
+                    <strong>Hotel Transylvania</strong>
+                    <span>Una estadía de otro mundo</span>
+                </span>
+            </a>
+            <nav class="nav-bar" aria-label="Navegación principal">
+                {% if request.resolver_match.url_name == 'inicio' %}
+                    <div class="nav-inner">
+                        <a href="{% url 'inicio:inicio' %}">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#gallery">Gallery</a>
+                        <a href="#faq">FAQ</a>
+                        <a class="nav-cta" href="{% url 'reserva:reserva_list' %}">Reservas</a>
+                    </div>
+                {% else %}
+                    <div class="nav-inner">
+                        <a href="{% url 'inicio:inicio' %}">Inicio</a>
+                        <a href="{% url 'hotel:hotel_list' %}">Hoteles</a>
+                        <a href="{% url 'habitacion:habitacion_list' %}">Habitaciones</a>
+                        <a href="{% url 'cliente:cliente_list' %}">Clientes</a>
+                        <a href="{% url 'reserva:reserva_list' %}">Reservas</a>
+                        <a href="{% url 'actividad_turistica:actividad_turistica_list' %}">Actividades</a>
+                    </div>
+                {% endif %}
+            </nav>
+            <div class="account">
+                {% if user.is_authenticated %}
+                    <span class="account-name">Hola, {{ user.get_short_name|default:user.username }}</span>
+                    <form method="post" action="{% url 'seguridad:logout' %}">
+                        {% csrf_token %}
+                        <button class="logout-button" type="submit">Cerrar sesión</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'seguridad:login' %}">Iniciar sesión</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <main class="{% block main_class %}page{% endblock %}">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+            </ul>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="site-footer">
+        <div class="site-footer-inner">Hotel Transylvania <span aria-hidden="true">·</span> Una estadía de otro mundo</div>
+    </footer>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

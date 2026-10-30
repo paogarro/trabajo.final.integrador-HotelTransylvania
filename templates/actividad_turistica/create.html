@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+{% block title %}Nueva actividad | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading"><div><p class="eyebrow">Experiencias</p><h1>Nueva actividad</h1><p class="subtitle">Cargá los datos de la propuesta turística.</p></div></section>
+<section class="form-card">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="actions"><button class="button" type="submit">Guardar actividad</button><a class="button secondary" href="{% url 'actividad_turistica:actividad_turistica_list' %}">Cancelar</a></div>
+    </form>
+</section>
+{% endblock %}

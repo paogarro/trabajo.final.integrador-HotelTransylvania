@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+
+{% block title %}Hoteles | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div><p class="eyebrow">Alojamientos</p><h1>Hoteles</h1><p class="subtitle">Administrá la información de cada establecimiento.</p></div>
+    <a class="button" href="{% url 'hotel:hotel_create' %}">＋ Nuevo hotel</a>
+</section>
+{% if hotel %}
+<div class="table-wrap">
+    <table>
+        <thead><tr><th>Hotel</th><th>Dirección</th><th>Teléfono</th><th>Descripción</th><th>Acciones</th></tr></thead>
+        <tbody>{% for item in hotel %}
+            <tr>
+                <td><strong>{{ item.nombre }}</strong></td><td>{{ item.direccion }}</td><td>{{ item.telefono }}</td>
+                <td>{{ item.descripcion|truncatechars:80 }}</td>
+                <td class="actions-cell">
+                    <a class="button secondary small" href="{% url 'hotel:hotel_update' item.pk %}">Editar</a>
+                    <a class="button danger small" href="{% url 'hotel:hotel_delete' item.pk %}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}</tbody>
+    </table>
+</div>
+{% else %}
+<section class="empty-state"><p>Todavía no hay hoteles registrados.</p><a class="button" href="{% url 'hotel:hotel_create' %}">Agregar primer hotel</a></section>
+{% endif %}
+{% endblock %}

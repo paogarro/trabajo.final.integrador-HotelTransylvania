@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+{% block title %}Nueva reserva | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading"><div><p class="eyebrow">Estadías</p><h1>Nueva reserva</h1><p class="subtitle">Asigná un huésped, una habitación y las fechas de estadía.</p></div></section>
+<section class="form-card">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="actions"><button class="button" type="submit">Guardar reserva</button><a class="button secondary" href="{% url 'reserva:reserva_list' %}">Cancelar</a></div>
+    </form>
+</section>
+{% endblock %}

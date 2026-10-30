@@ -1,0 +1,167 @@
+{% extends "base/base.html" %}
+
+{% block title %}Hotel Transylvania | Una estadía de otro mundo{% endblock %}
+{% block page_class %}landing-page{% endblock %}
+{% block main_class %}landing-main{% endblock %}
+
+{% block content %}
+<section class="landing-hero" id="hero" aria-labelledby="hero-title">
+    <svg class="scene-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+        <defs>
+            <radialGradient id="moon-glow">
+                <stop offset="0" stop-color="#fff9dc" stop-opacity=".72"/>
+                <stop offset=".62" stop-color="#ffe9a8" stop-opacity=".28"/>
+                <stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="moon-surface" cx=".38" cy=".3" r=".75">
+                <stop offset="0" stop-color="#fffef0"/>
+                <stop offset=".72" stop-color="#fff0bd"/>
+                <stop offset="1" stop-color="#e7c887"/>
+            </radialGradient>
+        </defs>
+        <circle cx="800" cy="205" r="220" fill="url(#moon-glow)"/>
+        <circle cx="800" cy="205" r="112" fill="url(#moon-surface)"/>
+        <g fill="#d4b97f" opacity=".23">
+            <circle cx="758" cy="170" r="13"/><circle cx="831" cy="228" r="18"/>
+            <circle cx="777" cy="249" r="8"/><circle cx="844" cy="157" r="7"/>
+        </g>
+        <g fill="#110d0b">
+            <path d="M235 245c-23-29-40-18-49 1-9-19-26-30-49-1 20-5 34 2 49 25 15-23 29-30 49-25z"/>
+            <path d="M1190 190c-17-21-30-13-36 1-7-14-20-22-37-1 15-4 26 2 37 19 11-17 22-23 36-19z"/>
+            <path d="M1360 290c-13-17-24-10-29 1-5-11-16-18-29-1 12-3 21 1 29 15 9-14 17-18 29-15z"/>
+            <path d="M420 350c-16-20-28-12-34 1-6-13-18-21-35-1 14-3 24 1 35 17 10-16 20-20 34-17z"/>
+            <path d="M1060 370c-11-14-20-9-24 1-5-10-14-15-25-1 10-2 18 1 25 13 7-12 14-15 24-13z"/>
+        </g>
+        <g fill="#0b0908">
+            <path d="M1150 705V570l42-56 43 56v-92l37-49 38 49v-98l47-65 47 65v325z"/>
+            <path d="M1273 705V532l37-51 37 51v-83l34-46 35 46v-75l42-57 43 57v331z"/>
+            <path d="M1137 573h-35v-61l30-40 31 40v25l-26 36zM1393 485h-28v-55l26-36 27 36v37z"/>
+            <path d="M1177 705V622q0-47 28-47t28 47v83zM1278 705V608q0-48 30-48t30 48v97zM1394 705V612q0-41 26-41t26 41v93z"/>
+            <path d="M1200 540h17v30h-17zM1334 493h17v29h-17zM1433 460h16v26h-16z"/>
+            <path d="M1128 706H1600v194h-472z"/>
+            <path d="M0 756q103-65 230-22 87-62 192-18 80-38 169 11 113-65 227-8 90-46 181 6 129-73 245-1 102-57 206 5 93-34 150 4v167H0z"/>
+        </g>
+        <g fill="#110d0b">
+            <path d="M90 750v-37q0-27 23-27t23 27v37z"/>
+            <path d="M156 754v-51q0-31 25-31t25 31v51z"/>
+            <path d="M256 755v-40q0-28 23-28t23 28v40z"/>
+            <path d="M367 753v-58q0-35 29-35t29 35v58z"/>
+            <path d="M485 750v-40q0-27 23-27t23 27v40z"/>
+            <path d="M977 754v-56q0-34 28-34t28 34v56z"/>
+            <path d="M1073 750v-42q0-29 24-29t24 29v42z"/>
+            <path d="M1490 751v-48q0-31 25-31t25 31v48z"/>
+            <path d="M90 718q0-49 23-63 23 14 23 63zM156 703q0-49 25-67 25 18 25 67zM256 715q0-47 23-62 23 15 23 62zM367 695q0-54 29-72 29 18 29 72zM485 710q0-46 23-61 23 15 23 61zM977 698q0-53 28-71 28 18 28 71zM1073 708q0-48 24-64 24 16 24 64zM1490 702q0-50 25-67 25 17 25 67z"/>
+            <path d="M55 766q20-31 40 0l-8 30H63zM284 766q22-33 44 0l-9 32h-26zM891 763q19-29 38 0l-8 29h-22zM1450 763q23-34 46 0l-10 33h-27z"/>
+            <path d="M75 769v-14m-8 8h16M300 770v-16m-9 9h18M905 768v-14m-8 7h16M1468 769v-16m-9 8h18" stroke="#100c0a" stroke-width="3"/>
+        </g>
+        <g fill="#100c0a">
+            <path d="M694 775c-20-20-18-47 0-60 8-6 18-8 28-8 11 0 21 2 29 8 18 13 20 40 0 60l-5 25h-47z"/>
+            <path d="M704 707q-10-13-3-25 9 10 21 10t22-10q7 12-3 25z"/>
+            <path d="M1362 784c-17-17-16-40 0-51 7-5 16-7 24-7 9 0 18 2 25 7 16 11 17 34 0 51l-4 22h-42z"/>
+            <path d="M1370 730q-9-11-2-21 8 8 18 8t19-8q6 10-3 21z"/>
+            <path d="M729 735l-9 9 9 5-8 7 11 4m662-19 8 9-8 5 8 7-11 4"/>
+        </g>
+        <path d="M0 842q186-32 371 0t372 0q187-32 374 0t483 0v58H0z" fill="#090807"/>
+    </svg>
+
+    <div class="hero-copy">
+        <p class="hero-kicker">Un refugio para criaturas extraordinarias</p>
+        <h1 class="hero-title" id="hero-title"><span>Bienvenido</span> al hotel</h1>
+        <p class="hero-description">Cuando cae la noche, empieza la magia. Descubrí una estadía encantada en el corazón de Transylvania.</p>
+        <a class="button hero-button" href="#about">Read More</a>
+        <nav class="hero-dots" aria-label="Explorar secciones">
+            <a href="#hero" aria-label="Inicio"></a>
+            <a href="#about" aria-label="Acerca del hotel"></a>
+            <a href="#gallery" aria-label="Experiencias"></a>
+            <a href="#faq" aria-label="Preguntas frecuentes"></a>
+        </nav>
+    </div>
+    <a class="scroll-cue" href="#about">Descubrí el hotel <span aria-hidden="true">↓</span></a>
+</section>
+
+<section class="landing-section about-panel" id="about">
+    <div>
+        <p class="section-kicker">Más que una leyenda</p>
+        <h2>Un lugar para sentirse monstruosamente bien</h2>
+        <p class="section-lead">Entre torres antiguas, habitaciones acogedoras y aventuras para recordar, cada huésped encuentra su rincón favorito. Humanos bienvenidos... si se atreven.</p>
+    </div>
+    <aside class="about-note">
+        <strong>La noche es joven</strong>
+        <p>Descansá en una habitación con encanto, disfrutá una experiencia única y dejá que nuestro equipo cuide cada detalle de tu visita.</p>
+    </aside>
+</section>
+
+<section class="landing-section" id="gallery">
+    <p class="section-kicker">Una estancia inolvidable</p>
+    <h2>Explorá el castillo</h2>
+    <p class="section-lead">Habitaciones y actividades preparadas para que tu próxima aventura sea fuera de lo común.</p>
+    <div class="gallery-grid">
+        <a class="experience-card" href="{% url 'habitacion:habitacion_list' %}">
+            <span class="card-icon" aria-hidden="true">🛏</span>
+            <strong>Habitaciones encantadas</strong>
+            <span>Encontrá el descanso perfecto, de ataúdes reales a suites de lujo.</span>
+        </a>
+        <a class="experience-card" href="{% url 'actividad_turistica:actividad_turistica_list' %}">
+            <span class="card-icon" aria-hidden="true">🦇</span>
+            <strong>Aventuras nocturnas</strong>
+            <span>Recorridos, paisajes y experiencias para descubrir Transylvania.</span>
+        </a>
+        <a class="experience-card" href="{% url 'hotel:hotel_list' %}">
+            <span class="card-icon" aria-hidden="true">🏰</span>
+            <strong>Un castillo legendario</strong>
+            <span>Conocé nuestros espacios y todo lo que hace especial al hotel.</span>
+        </a>
+    </div>
+</section>
+
+<section class="landing-section" id="faq">
+    <p class="section-kicker">Antes de que salga el sol</p>
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-list">
+        <article class="faq-item">
+            <h3>¿Puedo reservar una habitación desde aquí?</h3>
+            <p>Claro. Visitá la sección de reservas o contactá al equipo del hotel para organizar tu estadía.</p>
+        </article>
+        <article class="faq-item">
+            <h3>¿Hay actividades para huéspedes?</h3>
+            <p>Sí, ofrecemos actividades turísticas para agregar un poco de aventura a tu visita.</p>
+        </article>
+        <article class="faq-item">
+            <h3>¿El hotel recibe humanos?</h3>
+            <p>¡Por supuesto! Todas las criaturas son bienvenidas; solo recomendamos no asustarse fácilmente.</p>
+        </article>
+        <article class="faq-item">
+            <h3>¿Cómo consulto disponibilidad?</h3>
+            <p>Podés explorar las habitaciones y comunicarte con recepción para confirmar fechas y disponibilidad.</p>
+        </article>
+    </div>
+</section>
+
+<section class="landing-section management-section" id="management">
+    <p class="section-kicker">Recepción</p>
+    <h2>Administrá el hotel</h2>
+    <p class="section-lead">Accesos rápidos para el equipo de Hotel Transylvania.</p>
+    <div class="dashboard-grid" aria-label="Secciones de gestión">
+        <a class="dashboard-card" href="{% url 'hotel:hotel_list' %}">
+            <span class="card-icon" aria-hidden="true">🏰</span>
+            <strong>Hoteles</strong><span>Gestioná establecimientos y datos.</span>
+        </a>
+        <a class="dashboard-card" href="{% url 'habitacion:habitacion_list' %}">
+            <span class="card-icon" aria-hidden="true">🛏</span>
+            <strong>Habitaciones</strong><span>Consultá habitaciones y tarifas.</span>
+        </a>
+        <a class="dashboard-card" href="{% url 'cliente:cliente_list' %}">
+            <span class="card-icon" aria-hidden="true">👤</span>
+            <strong>Clientes</strong><span>Mantené al día los datos de huéspedes.</span>
+        </a>
+        <a class="dashboard-card" href="{% url 'reserva:reserva_list' %}">
+            <span class="card-icon" aria-hidden="true">📅</span>
+            <strong>Reservas</strong><span>Organizá las estadías.</span>
+        </a>
+        <a class="dashboard-card" href="{% url 'actividad_turistica:actividad_turistica_list' %}">
+            <span class="card-icon" aria-hidden="true">🧭</span>
+            <strong>Actividades</strong><span>Ofrecé experiencias a tus huéspedes.</span>
+        </a>
+    </div>
+</section>
+{% endblock %}

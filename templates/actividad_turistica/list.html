@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+{% block title %}Actividades | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div><p class="eyebrow">Experiencias</p><h1>Actividades turísticas</h1><p class="subtitle">Experiencias y propuestas para los huéspedes.</p></div>
+    <a class="button" href="{% url 'actividad_turistica:actividad_turistica_create' %}">＋ Nueva actividad</a>
+</section>
+{% if actividad %}
+<div class="table-wrap">
+    <table>
+        <thead><tr><th>Actividad</th><th>Hotel</th><th>Ubicación</th><th>Precio</th><th>Fechas</th><th>Acciones</th></tr></thead>
+        <tbody>{% for item in actividad %}
+            <tr>
+                <td><strong>{{ item.nombre }}</strong><br>{{ item.descripcion|truncatechars:70 }}</td>
+                <td>{{ item.hotel }}</td><td>{{ item.ubicacion }}</td><td>${{ item.precio }}</td>
+                <td>{{ item.fecha_inicio|date:"d/m/Y" }} – {{ item.fecha_fin|date:"d/m/Y" }}</td>
+                <td class="actions-cell">
+                    <a class="button secondary small" href="{% url 'actividad_turistica:actividad_turistica_update' item.pk %}">Editar</a>
+                    <a class="button danger small" href="{% url 'actividad_turistica:actividad_turistica_delete' item.pk %}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}</tbody>
+    </table>
+</div>
+{% else %}
+<section class="empty-state"><p>Todavía no hay actividades registradas.</p><a class="button" href="{% url 'actividad_turistica:actividad_turistica_create' %}">Agregar primera actividad</a></section>
+{% endif %}
+{% endblock %}

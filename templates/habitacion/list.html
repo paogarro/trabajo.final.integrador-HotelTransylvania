@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+
+{% block title %}Habitaciones | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div><p class="eyebrow">Alojamiento</p><h1>Habitaciones</h1><p class="subtitle">Tipos de habitación, hoteles y tarifas.</p></div>
+    <a class="button" href="{% url 'habitacion:habitacion_create' %}">＋ Nueva habitación</a>
+</section>
+{% if habitacion %}
+<div class="table-wrap">
+    <table>
+        <thead><tr><th>Número</th><th>Tipo</th><th>Hotel</th><th>Precio por noche</th><th>Descripción</th><th>Acciones</th></tr></thead>
+        <tbody>{% for item in habitacion %}
+            <tr>
+                <td>{{ item.numero }}</td><td>{{ item.tipo }}</td><td>{{ item.hotel }}</td>
+                <td>${{ item.precio }}</td><td>{{ item.descripcion|truncatechars:70 }}</td>
+                <td class="actions-cell">
+                    <a class="button secondary small" href="{% url 'habitacion:habitacion_update' item.pk %}">Editar</a>
+                    <a class="button danger small" href="{% url 'habitacion:habitacion_delete' item.pk %}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}</tbody>
+    </table>
+</div>
+{% else %}
+<section class="empty-state"><p>Todavía no hay habitaciones registradas.</p><a class="button" href="{% url 'habitacion:habitacion_create' %}">Agregar primera habitación</a></section>
+{% endif %}
+{% endblock %}

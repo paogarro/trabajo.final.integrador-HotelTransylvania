@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+
+{% block title %}Reservas | Hotel Transylvania{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div><p class="eyebrow">Estadías</p><h1>Reservas</h1><p class="subtitle">Huéspedes, habitaciones y fechas de cada estadía.</p></div>
+    <a class="button" href="{% url 'reserva:reserva_create' %}">＋ Nueva reserva</a>
+</section>
+{% if reserva %}
+<div class="table-wrap">
+    <table>
+        <thead><tr><th>Cliente</th><th>Habitación</th><th>Fechas</th><th>Actividades</th><th>Total estimado</th><th>Acciones</th></tr></thead>
+        <tbody>{% for item in reserva %}
+            <tr>
+                <td>{{ item.cliente }}</td><td>{{ item.habitacion.numero }} · {{ item.habitacion.tipo }}</td>
+                <td>{{ item.fecha_inicio|date:"d/m/Y" }} – {{ item.fecha_fin|date:"d/m/Y" }}</td>
+                <td>{% for activity in item.actividad_turistica.all %}{{ activity.nombre }}{% if not forloop.last %}, {% endif %}{% empty %}—{% endfor %}</td>
+                <td>${{ item.total_reserva }}</td>
+                <td class="actions-cell">
+                    <a class="button secondary small" href="{% url 'reserva:reserva_update' item.pk %}">Editar</a>
+                    <a class="button danger small" href="{% url 'reserva:reserva_delete' item.pk %}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}</tbody>
+    </table>
+</div>
+{% else %}
+<section class="empty-state"><p>Todavía no hay reservas registradas.</p><a class="button" href="{% url 'reserva:reserva_create' %}">Crear primera reserva</a></section>
+{% endif %}
+{% endblock %}
