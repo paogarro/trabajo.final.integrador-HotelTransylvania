@@ -18,6 +18,7 @@
                 <td>{% for activity in item.actividad_turistica.all %}{{ activity.nombre }}{% if not forloop.last %}, {% endif %}{% empty %}—{% endfor %}</td>
                 <td>${{ item.total_reserva }}</td>
                 <td class="actions-cell">
+                    <a class="button secondary small" href="{% url 'reserva:reserva_detail' item.pk %}">Ver</a>
                     <a class="button secondary small" href="{% url 'reserva:reserva_update' item.pk %}">Editar</a>
                     <a class="button danger small" href="{% url 'reserva:reserva_delete' item.pk %}">Eliminar</a>
                 </td>

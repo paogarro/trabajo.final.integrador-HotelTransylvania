@@ -17,6 +17,7 @@
                 <td>{{ item.hotel }}</td><td>{{ item.ubicacion }}</td><td>${{ item.precio }}</td>
                 <td>{{ item.fecha_inicio|date:"d/m/Y" }} – {{ item.fecha_fin|date:"d/m/Y" }}</td>
                 <td class="actions-cell">
+                    <a class="button secondary small" href="{% url 'actividad_turistica:actividad_turistica_detail' item.pk %}">Ver</a>
                     <a class="button secondary small" href="{% url 'actividad_turistica:actividad_turistica_update' item.pk %}">Editar</a>
                     <a class="button danger small" href="{% url 'actividad_turistica:actividad_turistica_delete' item.pk %}">Eliminar</a>
                 </td>

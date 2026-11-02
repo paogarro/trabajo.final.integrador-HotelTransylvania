@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+
+{% block title %}{{ actividad.nombre }} | Actividades{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Experiencias</p>
+        <h1>{{ actividad.nombre }}</h1>
+        <p class="subtitle">Información de la actividad turística.</p>
+    </div>
+</section>
+
+<div class="table-wrap">
+    <table>
+        <tbody>
+            <tr><th scope="row">Hotel</th><td>{{ actividad.hotel }}</td></tr>
+            <tr><th scope="row">Descripción</th><td>{{ actividad.descripcion|linebreaksbr }}</td></tr>
+            <tr><th scope="row">Ubicación</th><td>{{ actividad.ubicacion }}</td></tr>
+            <tr><th scope="row">Precio</th><td>${{ actividad.precio }}</td></tr>
+            <tr><th scope="row">Fecha de inicio</th><td>{{ actividad.fecha_inicio|date:"d/m/Y" }}</td></tr>
+            <tr><th scope="row">Fecha de fin</th><td>{{ actividad.fecha_fin|date:"d/m/Y" }}</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="actions">
+    <a class="button secondary" href="{% url 'actividad_turistica:actividad_turistica_list' %}">Volver a actividades</a>
+    <a class="button" href="{% url 'actividad_turistica:actividad_turistica_update' actividad.pk %}">Editar actividad</a>
+    <a class="button danger" href="{% url 'actividad_turistica:actividad_turistica_delete' actividad.pk %}">Eliminar actividad</a>
+</div>
+{% endblock %}

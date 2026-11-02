@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+
+{% block title %}Detalle de reserva | Reservas{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Estadías</p>
+        <h1>Reserva de {{ reserva.cliente }}</h1>
+        <p class="subtitle">Detalles de la estadía y sus actividades.</p>
+    </div>
+</section>
+
+<div class="table-wrap">
+    <table>
+        <tbody>
+            <tr><th scope="row">Cliente</th><td>{{ reserva.cliente }}</td></tr>
+            <tr><th scope="row">Habitación</th><td>{{ reserva.habitacion.numero }} · {{ reserva.habitacion.tipo }}</td></tr>
+            <tr><th scope="row">Hotel</th><td>{{ reserva.habitacion.hotel }}</td></tr>
+            <tr><th scope="row">Fecha de inicio</th><td>{{ reserva.fecha_inicio|date:"d/m/Y" }}</td></tr>
+            <tr><th scope="row">Fecha de fin</th><td>{{ reserva.fecha_fin|date:"d/m/Y" }}</td></tr>
+            <tr>
+                <th scope="row">Actividades</th>
+                <td>{% for actividad in reserva.actividad_turistica.all %}{{ actividad.nombre }}{% if not forloop.last %}, {% endif %}{% empty %}—{% endfor %}</td>
+            </tr>
+            <tr><th scope="row">Total estimado</th><td>${{ reserva.total_reserva }}</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="actions">
+    <a class="button secondary" href="{% url 'reserva:reserva_list' %}">Volver a reservas</a>
+    <a class="button" href="{% url 'reserva:reserva_update' reserva.pk %}">Editar reserva</a>
+    <a class="button danger" href="{% url 'reserva:reserva_delete' reserva.pk %}">Eliminar reserva</a>
+</div>
+{% endblock %}

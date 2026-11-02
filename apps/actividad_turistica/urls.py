@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
 
-from .views import ActividadListView, ActividadCreateView, ActividadUpdateView, ActividadDeleteView
+from .views import ActividadListView, ActividadCreateView, ActividadUpdateView, ActividadDeleteView, ActividadDetailView
 
 app_name = 'actividad_turistica'
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('crear/', login_required(ActividadCreateView.as_view()), name='actividad_turistica_create'),
     path('<int:pk>/editar/', login_required(ActividadUpdateView.as_view()), name='actividad_turistica_update'),
     path('<int:pk>/eliminar/', login_required(ActividadDeleteView.as_view()), name='actividad_turistica_delete'),
+    path('<int:pk>/', login_required(ActividadDetailView.as_view()), name='actividad_turistica_detail'),
 ]

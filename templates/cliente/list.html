@@ -16,6 +16,7 @@
                 <td>{{ item.nombre }} {{ item.apellido }}</td><td>{{ item.email }}</td>
                 <td>{{ item.telefono|default:"—" }}</td><td>{{ item.direccion|default:"—"|truncatechars:60 }}</td>
                 <td class="actions-cell">
+                    <a class="button secondary small" href="{% url 'cliente:cliente_detail' item.pk %}">Ver</a>
                     <a class="button secondary small" href="{% url 'cliente:cliente_update' item.pk %}">Editar</a>
                     <a class="button danger small" href="{% url 'cliente:cliente_delete' item.pk %}">Eliminar</a>
                 </td>

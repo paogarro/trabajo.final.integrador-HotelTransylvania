@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+
+{% block title %}{{ cliente }} | Clientes{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Huéspedes</p>
+        <h1>{{ cliente.nombre }} {{ cliente.apellido }}</h1>
+        <p class="subtitle">Información de contacto del cliente.</p>
+    </div>
+</section>
+
+<div class="table-wrap">
+    <table>
+        <tbody>
+            <tr><th scope="row">Nombre</th><td>{{ cliente.nombre }}</td></tr>
+            <tr><th scope="row">Apellido</th><td>{{ cliente.apellido }}</td></tr>
+            <tr><th scope="row">Email</th><td>{{ cliente.email }}</td></tr>
+            <tr><th scope="row">Teléfono</th><td>{{ cliente.telefono|default:"—" }}</td></tr>
+            <tr><th scope="row">Dirección</th><td>{{ cliente.direccion|default:"—"|linebreaksbr }}</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="actions">
+    <a class="button secondary" href="{% url 'cliente:cliente_list' %}">Volver a clientes</a>
+    <a class="button" href="{% url 'cliente:cliente_update' cliente.pk %}">Editar cliente</a>
+    <a class="button danger" href="{% url 'cliente:cliente_delete' cliente.pk %}">Eliminar cliente</a>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+
+{% block title %}Habitación {{ habitacion.numero }} | Habitaciones{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Alojamiento</p>
+        <h1>Habitación {{ habitacion.numero }}</h1>
+        <p class="subtitle">Detalles de la habitación del hotel {{ habitacion.hotel }}.</p>
+    </div>
+</section>
+
+<div class="table-wrap">
+    <table>
+        <tbody>
+            <tr><th scope="row">Número</th><td>{{ habitacion.numero }}</td></tr>
+            <tr><th scope="row">Tipo</th><td>{{ habitacion.tipo }}</td></tr>
+            <tr><th scope="row">Hotel</th><td>{{ habitacion.hotel }}</td></tr>
+            <tr><th scope="row">Precio por noche</th><td>${{ habitacion.precio }}</td></tr>
+            <tr><th scope="row">Descripción</th><td>{{ habitacion.descripcion|linebreaksbr }}</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="actions">
+    <a class="button secondary" href="{% url 'habitacion:habitacion_list' %}">Volver a habitaciones</a>
+    <a class="button" href="{% url 'habitacion:habitacion_update' habitacion.pk %}">Editar habitación</a>
+    <a class="button danger" href="{% url 'habitacion:habitacion_delete' habitacion.pk %}">Eliminar habitación</a>
+</div>
+{% endblock %}

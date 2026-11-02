@@ -16,6 +16,7 @@
                 <td>{{ item.numero }}</td><td>{{ item.tipo }}</td><td>{{ item.hotel }}</td>
                 <td>${{ item.precio }}</td><td>{{ item.descripcion|truncatechars:70 }}</td>
                 <td class="actions-cell">
+                    <a class="button secondary small" href="{% url 'habitacion:habitacion_detail' item.pk %}">Ver</a>
                     <a class="button secondary small" href="{% url 'habitacion:habitacion_update' item.pk %}">Editar</a>
                     <a class="button danger small" href="{% url 'habitacion:habitacion_delete' item.pk %}">Eliminar</a>
                 </td>
